@@ -57,7 +57,7 @@ pipeline {
                     fi
                     docker run -d --restart unless-stopped --name "$LIVE" \
                         -p "127.0.0.1:$LIVE_PORT:80" "$APP_IMAGE"
-                    curl --fail --silent --show-error --retry 5 --retry-connrefused \
+                    curl --fail --silent --show-error --retry 10 --retry-all-errors --retry-max-time 25 \
                         "http://127.0.0.1:$LIVE_PORT/" -o /dev/null
                 '''
             }
