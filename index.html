@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CI/CD Assignment | FA23-BCT-039</title>
+<style>
+body { font: 1rem system-ui, sans-serif; background: #eef4fc; color: #142642; margin: 0; }
+main { max-width: 42rem; margin: 8vh auto; padding: 2rem; background: white; border: 1px solid #c9d7e9; border-radius: 1rem; }
+button, input { font: inherit; padding: .6rem; }
+button { background: #174d8f; color: white; border: 0; border-radius: .4rem; cursor: pointer; }
+label { display: block; margin: 1rem 0 .4rem; }
+</style>
+<main>
+<h1>CI/CD Assignment</h1>
+<p><strong>Shahroze Afaq</strong> · FA23-BCT-039</p>
+<button type="button" id="show-message">Show message</button>
+<p id="message" role="status"></p>
+<form id="text-form">
+<label for="entry">Your text</label>
+<input id="entry" required>
+<button type="submit">Submit</button>
+</form>
+<p id="submitted" role="status"></p>
+</main>
+<script>
+document.querySelector('#show-message').addEventListener('click', () => {
+  document.querySelector('#message').textContent = 'Jenkins pipeline is working!';
+});
+document.querySelector('#text-form').addEventListener('submit', (event) => {
+  event.preventDefault();
+  document.querySelector('#submitted').textContent = document.querySelector('#entry').value;
+});
+</script>
+</html>
